@@ -28,23 +28,22 @@ body {
 
 .content-container {
     display: flex;
+    flex: 1;
 }
 
 .card-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    flex: 1;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
     gap: 50px;
 }
 
 .bookCard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     height: 200px;
     width: 175px;
@@ -55,10 +54,9 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 300px;
-    height: 1fr;
+    width: 250px;
+    height: 100vh;
     background-color: lightblue;
-
 }
 
 .form-row {
@@ -86,4 +84,19 @@ body {
     border: transparent;
     color: white;
     background-color: gray;
+}
+
+.delete-btn {
+    height: 20px;
+    width: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 130px;
+}
+
+.rbtn {
+    margin-top: 80px;
+    height: 20px;
+    width: 60px;
+    border-radius: 5px;
 }

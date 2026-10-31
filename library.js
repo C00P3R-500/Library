@@ -28,10 +28,20 @@ function displayLibrary() {
     cardContainer.innerHTML = "";
 
     for(let i = 0; i < myLibrary.length; i++)
-    {
+    {   
         const div = document.createElement("div");
         div.classList.add("bookCard")
         cardContainer.appendChild(div);
+
+        const xbtn = document.createElement("img");
+        xbtn.src = "delete.svg";
+        xbtn.classList.add("delete-btn");
+        div.appendChild(xbtn);
+
+        xbtn.addEventListener("click", () => {
+            myLibrary.splice(i, 1);
+            displayLibrary();
+        })
 
         const title = document.createElement("div");
         title.innerHTML = myLibrary[i].title;
@@ -39,6 +49,26 @@ function displayLibrary() {
         const author = document.createElement("div");
         author.innerHTML = myLibrary[i].author;
         div.appendChild(author);
+
+        const rbtn = document.createElement("button");
+        rbtn.classList.add("rbtn");
+        rbtn.textContent = myLibrary[i].read;
+        div.appendChild(rbtn);
+
+        rbtn.addEventListener("click", () => {
+
+            if (myLibrary[i].read === "read") {
+                myLibrary[i].read = "unread";
+                rbtn.textContent = myLibrary[i].read;
+            } else {
+                myLibrary[i].read = "read";
+                rbtn.textContent = myLibrary[i].read;
+            }
+
+            displayLibrary();
+        });
+
+        
     }
 }
 
@@ -51,7 +81,7 @@ form.addEventListener("submit", (e) => {
     const read = document.querySelector('input[name="status"]:checked').value;
 
     addBook(title, author, pages, read);
-    addCard();
+    displayLibrary();
     form.reset();
 });
 
