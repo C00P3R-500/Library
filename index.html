@@ -10,9 +10,57 @@
 <body>
     <div class="header">MY LIBRARY</div>
 
-    <div class="bookCards">
+    <div class="content-container">
+        <div class="card-container"></div>
+
+        <div class="form-container">
+
+            <h3>Add a book</h3>
+
+            <form id="book-form" action="" method="post">
+
+                <div class="form-row">
+                    <label for="Title">Book Title</label>
+                    <input type="text" id="Title" name="Title" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="Author">Author</label>
+                    <input type="text" id="Author" name="Author" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="Pages">Pages</label>
+                    <input type="text" id="Pages" name="Pages" required>
+                </div>
+
+                <div class="radio-row">
+                    <div class="form-row">
+                        <input type="radio" id="Read" name="status" value="read" required>
+                        <label for="Read">Read</label>
+                    </div>
+                    
+                    <div class="form-row">
+                        <input type="radio" id="UnRead" name="status" value="unread" required>
+                        <label for="UnRead">Unread</label>
+                    </div>   
+                </div>
+
+                <div class="btn-row">
+                    <button id="add-btn" type="submit" form="book-form">Add Book</button>
+                </div>
+                
+
+
+            </form>
+        </div>
 
     </div>
+    
+    <div class="footer">my footer</div>
+   
+    
+    
     
 </body>
 </html>

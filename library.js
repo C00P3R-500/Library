@@ -21,9 +21,12 @@ addBook("The Great Gatsby", "F. Scott Fitzgerald", 180, "read");
 addBook("The Giver", "Lois Lowry", 240, "unread");
 
 
-const cardContainer = document.querySelector(".bookCards");
+const cardContainer = document.querySelector(".card-container");
+const form = document.querySelector("#book-form");
 
 function addCard() {
+    cardContainer.innerHTML = "";
+
     for(let i = 0; i < myLibrary.length; i++)
     {
         let div = document.createElement("div");
@@ -33,5 +36,20 @@ function addCard() {
         cardContainer.appendChild(div);
     }
 }
+
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const title = document.querySelector("#Title").value;
+    const author = document.querySelector("#Author").value;
+    const pages = document.querySelector("#Pages").value;
+    const read = document.querySelector('input[name="status"]:checked').value;
+
+    addBook(title, author, pages, read);
+    addCard();
+    form.reset();
+});
+
 
 addCard();
