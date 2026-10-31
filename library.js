@@ -24,19 +24,23 @@ addBook("The Giver", "Lois Lowry", 240, "unread");
 const cardContainer = document.querySelector(".card-container");
 const form = document.querySelector("#book-form");
 
-function addCard() {
+function displayLibrary() {
     cardContainer.innerHTML = "";
 
     for(let i = 0; i < myLibrary.length; i++)
     {
-        let div = document.createElement("div");
+        const div = document.createElement("div");
         div.classList.add("bookCard")
-        div.innerHTML = myLibrary[i].title;
-
         cardContainer.appendChild(div);
+
+        const title = document.createElement("div");
+        title.innerHTML = myLibrary[i].title;
+        div.appendChild(title);
+        const author = document.createElement("div");
+        author.innerHTML = myLibrary[i].author;
+        div.appendChild(author);
     }
 }
-
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -52,4 +56,4 @@ form.addEventListener("submit", (e) => {
 });
 
 
-addCard();
+displayLibrary();
